@@ -105,6 +105,12 @@ class ApiEndpointTests(unittest.TestCase):
             {"identifier": "2", "enabled": True},
         )
 
+    def test_enhance_prompt_includes_post_implantation_safety_loop(self):
+        self.assertTrue("Post-Implantation Safety Loop" in server.ENHANCE_SYSTEM_PROMPT)
+
+    def test_enhance_prompt_includes_auto_repair_step(self):
+        self.assertTrue("auto-repair" in server.ENHANCE_SYSTEM_PROMPT.lower())
+
 
 if __name__ == "__main__":
     unittest.main()
